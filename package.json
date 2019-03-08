@@ -1,0 +1,13 @@
+{
+  "name": "eventemitter",
+  "version": "1.0.0",
+  "description": "Minimalist event emitter for platforms that don't implement EventTarget interface.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabriel-ss/EventEmitter.js.git"
+  },
+  "author": "Gabriel Silveira",
+  "license": "Unlicense"
+}
