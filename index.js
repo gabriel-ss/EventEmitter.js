@@ -8,6 +8,7 @@ var EventEmitter = (() => {
 
 	};
 
+
 	var removeEventListener = function(eventRegistry, eventName, callback) {
 
 		var callbacks = eventRegistry[eventName];
@@ -18,11 +19,14 @@ var EventEmitter = (() => {
 	};
 
 
-	var dispatchEvent = function(eventRegistry, eventObject) {
+	var dispatchEvent = function(target, eventRegistry, eventObject) {
 
 		var callbacks = eventRegistry[eventObject.type];
 
 		if (!callbacks) return;
+
+		eventObject.currentTarget = target;
+		eventObject.target || (eventObject.target = target);
 
 		var len = callbacks.length;
 
@@ -87,7 +91,7 @@ var EventEmitter = (() => {
 		 */
 		this.dispatchEvent = function(eventObject) {
 
-			dispatchEvent(eventRegistry, eventObject);
+			dispatchEvent(this, eventRegistry, eventObject);
 
 		};
 
